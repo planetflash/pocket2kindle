@@ -1,0 +1,21 @@
+{
+  "name": "simple_webpack",
+  "version": "1.0.0",
+  "description":
+    "https://alejandronapoles.com/2016/03/12/the-simplest-webpack-and-express-setup/",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "webpack && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Thomas",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.10.0"
+  }
+}
