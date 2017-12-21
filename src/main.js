@@ -1,5 +1,5 @@
 var hello = document.getElementById('app');
-hello.innerHTML = 'Hello new!';
+hello.innerHTML = 'Hello 5!';
 
 hello.addEventListener('click', e => {
   console.log(e);

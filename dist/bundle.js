@@ -68,7 +68,7 @@
 /***/ (function(module, exports) {
 
 var hello = document.getElementById('app');
-hello.innerHTML = 'Hello World!';
+hello.innerHTML = 'Hello 5!';
 
 hello.addEventListener('click', e => {
   console.log(e);

@@ -6,17 +6,21 @@
   "scripts": {
     "watch": "webpack --watch",
     "build": "webpack",
-    "serve": "node server/server.js",
+    "serve": "webpack-dev-server --open",
+    "start":
+      "concurrently -p \"[{name}]\" -n \"webpack,server\" -c \"blue.bold,magenta.bold,\" \"npm run serve\" \"npm run watch\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Paul Thomas",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.17.1",
+    "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "node-fetch": "^1.7.3",
     "r2": "^2.0.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "webpack-dev-server": "^2.9.7"
   },
   "devDependencies": {
     "html-webpack-plugin": "^2.30.1",
