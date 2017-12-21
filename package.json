@@ -4,8 +4,9 @@
   "description": "send unread pocket articles to kindle",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "webpack && npm start",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "serve": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Paul Thomas",

@@ -8,9 +8,9 @@ var app = express();
 // Serving the files on the dist folder
 app.use(express.static(DIST_DIR));
 
-app.get('/hello', function(req, res) {
-  res.send('Hello!');
-});
+// app.get('/hello', function(req, res) {
+//   res.send('Hello!');
+// });
 
 // Send index.html when the user access the web
 app.get('*', function(req, res) {
