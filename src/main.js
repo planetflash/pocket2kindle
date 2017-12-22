@@ -1,18 +1,29 @@
+import printMe from './print.js';
+
 var hello = document.getElementById('app');
-hello.innerHTML = 'Hello 7!';
+hello.innerHTML = 'Hello 10!';
 
 hello.addEventListener('click', e => {
   console.log(e);
 
-  fetch('/hello')
-    .then(response => {
-      console.log(response);
+  printMe();
 
-      if (!response.ok) return;
-
-      console.log(response);
-    })
-    .catch(error => {
-      console.error('Fetch Error :-S', error);
-    });
+  // fetch('/hello')
+  //   .then(response => {
+  //     console.log(response);
+  //
+  //     if (!response.ok) return;
+  //
+  //     console.log(response);
+  //   })
+  //   .catch(error => {
+  //     console.error('Fetch Error :-S', error);
+  //   });
 });
+
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('Accepting the updated printMe module!');
+    printMe();
+  });
+}

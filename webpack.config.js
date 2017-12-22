@@ -15,7 +15,8 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: DIST_PATH
+    contentBase: DIST_PATH,
+    port: 3000
   },
   resolve: {
     extensions: [' ', '.js']
@@ -24,6 +25,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Custom template',
       template: 'index.ejs'
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
