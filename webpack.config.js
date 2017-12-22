@@ -15,14 +15,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-<<<<<<< HEAD
-    publicPath: DIST_DIR,
-    contentBase: DIST_PATH,
-    port: 3000,
-    hot: true
-=======
     contentBase: DIST_PATH
->>>>>>> newbranch
   },
   resolve: {
     extensions: [' ', '.js']
