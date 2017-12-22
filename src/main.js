@@ -1,7 +1,7 @@
 import printMe from './print.js';
 
 var hello = document.getElementById('app');
-hello.innerHTML = 'Hello 10!';
+hello.innerHTML = 'Hello 11!';
 
 hello.addEventListener('click', e => {
   console.log(e);
@@ -20,10 +20,3 @@ hello.addEventListener('click', e => {
   //     console.error('Fetch Error :-S', error);
   //   });
 });
-
-if (module.hot) {
-  module.hot.accept('./print.js', function() {
-    console.log('Accepting the updated printMe module!');
-    printMe();
-  });
-}

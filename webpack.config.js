@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Custom template',
+      title: 'Pocket2Kindle',
       template: 'index.ejs'
     }),
     new webpack.NamedModulesPlugin(),
