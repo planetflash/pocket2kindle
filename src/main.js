@@ -1,22 +1,22 @@
 import printMe from './print.js';
 
 const hello = document.getElementById('app');
-hello.innerHTML = 'Hello 19!';
+hello.innerHTML = 'Hello 20!';
 
 hello.addEventListener('click', e => {
   console.log(e);
 
-  printMe();
+  // printMe();
 
-  // fetch('/hello')
-  //   .then(response => {
-  //     console.log(response);
-  //
-  //     if (!response.ok) return;
-  //
-  //     console.log(response);
-  //   })
-  //   .catch(error => {
-  //     console.error('Fetch Error :-S', error);
-  //   });
+  fetch('/hello')
+    .then(response => {
+      console.log(response);
+
+      if (!response.ok) return;
+
+      console.log(response);
+    })
+    .catch(error => {
+      console.error('Fetch Error :-S', error);
+    });
 });
