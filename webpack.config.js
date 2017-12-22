@@ -17,14 +17,18 @@ module.exports = {
   },
   devServer: {
     contentBase: DIST_PATH,
-    port: 3000
+    port: 3000,
+    // Proxy to API backend
+    proxy: {
+      '/api': 'http://localhost:8080'
+    }
   },
   module: {
     loaders: [
       // Babel
       {
         loader: 'babel-loader',
-        include: [path.resolve(__dirname, 'src')],
+        include: [path.resolve(__dirname, SRC_DIR)],
         test: /\.jsx?$/,
         query: {
           presets: ['es2015']

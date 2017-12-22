@@ -1,14 +1,14 @@
 import printMe from './print.js';
 
 const hello = document.getElementById('app');
-hello.innerHTML = 'Hello 20!';
+hello.innerHTML = 'Hello 21!';
 
 hello.addEventListener('click', e => {
   console.log(e);
 
   // printMe();
 
-  fetch('/hello')
+  fetch('/api/hello')
     .then(response => {
       console.log(response);
 
