@@ -13,8 +13,6 @@ hello.addEventListener('click', e => {
       console.log(response);
 
       if (!response.ok) return;
-
-      console.log(response);
     })
     .catch(error => {
       console.error('Fetch Error :-S', error);
