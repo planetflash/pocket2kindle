@@ -1,7 +1,7 @@
 import printMe from './print.js';
 
-var hello = document.getElementById('app');
-hello.innerHTML = 'Hello 15!';
+const hello = document.getElementById('app');
+hello.innerHTML = 'Hello 19!';
 
 hello.addEventListener('click', e => {
   console.log(e);
