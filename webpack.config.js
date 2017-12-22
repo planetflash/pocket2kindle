@@ -5,11 +5,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const DIST_DIR = 'dist';
 const DIST_PATH = path.join(__dirname, DIST_DIR);
-const CLIENT_DIR = 'src';
-const CLIENT_PATH = path.join(__dirname, CLIENT_DIR);
+const SRC_DIR = 'src';
+const SRC_PATH = path.join(__dirname, SRC_DIR);
 
 module.exports = {
-  context: CLIENT_PATH,
+  context: SRC_PATH,
   entry: ['./main.js'],
   output: {
     path: DIST_PATH,
