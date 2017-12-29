@@ -23,13 +23,14 @@ module.exports = {
       '/api': 'http://localhost:8080'
     }
   },
+  devtool: 'eval-source-map',
   module: {
     loaders: [
       // Babel
       {
         loader: 'babel-loader',
         include: [path.resolve(__dirname, SRC_DIR)],
-        test: /\.jsx?$/,
+        test: /\.js[x]?$/,
         query: {
           presets: ['es2015']
         }
