@@ -13,3 +13,7 @@ hello.addEventListener('click', e => {
       console.error('Fetch Error', error);
     });
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  console.info('Running in development mode!');
+}

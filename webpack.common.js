@@ -15,15 +15,6 @@ module.exports = {
     path: DIST_PATH,
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: DIST_PATH,
-    port: 3000,
-    // Proxy to API backend
-    proxy: {
-      '/api': 'http://localhost:8080'
-    }
-  },
-  devtool: 'eval-source-map',
   module: {
     loaders: [
       // Babel
