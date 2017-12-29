@@ -25,6 +25,22 @@ module.exports = {
         query: {
           presets: ['es2015']
         }
+      },
+      // SASS
+      {
+        test: /\.[s]css$/,
+        include: [path.resolve(__dirname, SRC_DIR)],
+        use: [
+          {
+            loader: 'style-loader' // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader' // translates CSS into CommonJS
+          },
+          {
+            loader: 'sass-loader' // compiles Sass to CSS
+          }
+        ]
       }
     ]
   },

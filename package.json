@@ -8,8 +8,7 @@
     "watch": "webpack --watch --progress --config webpack.dev.js",
     "dev-server": "nodemon ./server.js",
     "dev-client": "webpack-dev-server --open --config webpack.dev.js",
-    "start":
-      "concurrently -p \"[{name}]\" -n \"dev-server,dev-client,webpack\" -c \"yellow.bold,blue.bold,magenta.bold,\" \"npm run dev-server\" \"npm run dev-client\" \"npm run watch\"",
+    "start": "concurrently -p \"[{name}]\" -n \"dev-server,dev-client,webpack\" -c \"yellow.bold,blue.bold,magenta.bold,\" \"npm run dev-server\" \"npm run dev-client\" \"npm run watch\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Paul Thomas",
@@ -23,8 +22,12 @@
     "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "concurrently": "^3.5.1",
+    "css-loader": "^0.28.7",
     "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
     "nodemon": "^1.14.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.1"

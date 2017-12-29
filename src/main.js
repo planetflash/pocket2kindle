@@ -1,7 +1,8 @@
 import printMe from './print.js';
+import './main.scss';
 
 const hello = document.getElementById('app');
-hello.innerHTML = 'Hello 22!';
+hello.innerHTML = '<p>Hello 22!</p>';
 
 hello.addEventListener('click', e => {
   fetch('/api/hello')
