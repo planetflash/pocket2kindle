@@ -14,6 +14,6 @@ hello.addEventListener('click', e => {
     });
 });
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   console.info('Running in development mode!');
 }
