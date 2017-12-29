@@ -2,11 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const DIST_DIR = 'dist';
 const DIST_PATH = path.join(__dirname, DIST_DIR);
 const SRC_DIR = 'src';
 const SRC_PATH = path.join(__dirname, SRC_DIR);
+
+const extractSass = new ExtractTextPlugin({
+  filename: '[name].css'
+});
 
 module.exports = {
   context: SRC_PATH,
@@ -30,23 +35,24 @@ module.exports = {
       {
         test: /\.[s]css$/,
         include: [path.resolve(__dirname, SRC_DIR)],
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
+        use: extractSass.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
             }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
+          ],
+          // use style-loader in development
+          fallback: 'style-loader'
+        })
       }
     ]
   },
@@ -62,6 +68,8 @@ module.exports = {
     new CleanWebpackPlugin([DIST_DIR], {
       watch: true,
       exclude: ['bundle.js', 'index.html'] // permissions issues on windows without this
-    })
+    }),
+    // Extract CSS file
+    extractSass
   ]
 };
