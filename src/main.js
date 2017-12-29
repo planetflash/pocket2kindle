@@ -1,20 +1,15 @@
 import printMe from './print.js';
 
 const hello = document.getElementById('app');
-hello.innerHTML = 'Hello 21!';
+hello.innerHTML = 'Hello 22!';
 
 hello.addEventListener('click', e => {
-  console.log(e);
-
-  // printMe();
-
   fetch('/api/hello')
-    .then(response => {
-      console.log(response);
-
-      if (!response.ok) return;
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data);
     })
     .catch(error => {
-      console.error('Fetch Error :-S', error);
+      console.error('Fetch Error', error);
     });
 });
