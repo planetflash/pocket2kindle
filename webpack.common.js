@@ -31,7 +31,7 @@ module.exports = {
           presets: ['es2015']
         }
       },
-      // SASS
+      // SASS / CSS
       {
         test: /\.[s]css$/,
         include: [path.resolve(__dirname, SRC_DIR)],
@@ -40,6 +40,16 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                sourceMap: true,
+                importLoaders: 2
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => {
+                  return [require('autoprefixer')];
+                },
                 sourceMap: true
               }
             },
