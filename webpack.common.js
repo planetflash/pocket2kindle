@@ -48,7 +48,11 @@ module.exports = {
               loader: 'postcss-loader',
               options: {
                 plugins: () => {
-                  return [require('autoprefixer')];
+                  return [
+                    require('autoprefixer')({
+                      browsers: ['last 3 versions', 'ie 11']
+                    })
+                  ];
                 },
                 sourceMap: true
               }
