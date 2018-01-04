@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
+    "dev": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --progress --config webpack.dev.js",
     "dev-server": "nodemon ./server.js",
     "dev-client": "webpack-dev-server --open --config webpack.dev.js",
-    "start": "concurrently -p \"[{name}]\" -n \"dev-server,dev-client,webpack\" -c \"yellow.bold,blue.bold,magenta.bold,\" \"npm run dev-server\" \"npm run dev-client\" \"npm run watch\"",
+    "start":
+      "concurrently -p \"[{name}]\" -n \"dev-server,dev-client,webpack\" -c \"yellow.bold,blue.bold,magenta.bold,\" \"npm run dev-server\" \"npm run dev-client\" \"npm run watch\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Paul Thomas",
