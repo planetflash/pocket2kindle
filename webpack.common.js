@@ -26,17 +26,7 @@ module.exports = {
       {
         include: [path.resolve(__dirname, SRC_DIR)],
         test: /\.js[x]?$/,
-				use: [
-					{
-						loader: 'babel-loader',
-						query: {
-							presets: ['es2015']
-						}
-					},
-					{
-						loader: 'eslint-loader'
-					}
-				]
+				loaders: ['babel-loader', 'eslint-loader']
       },
       // SASS / CSS
       {
