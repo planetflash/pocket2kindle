@@ -49,9 +49,7 @@ module.exports = {
               options: {
                 plugins: () => {
                   return [
-                    require('autoprefixer')({
-                      browsers: ['last 3 versions', 'ie 11']
-                    })
+                    require('autoprefixer')
                   ];
                 },
                 sourceMap: true
