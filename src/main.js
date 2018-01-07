@@ -5,7 +5,6 @@ const hello = document.getElementById('app');
 hello.innerHTML = '<p>Hello 22!</p>';
 
 hello.addEventListener('click', e => {
-	console.log('test change');
 
 	fetch('/api/hello')
     .then(resp => resp.json())
