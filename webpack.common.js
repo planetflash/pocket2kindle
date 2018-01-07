@@ -10,7 +10,7 @@ const SRC_DIR = 'src';
 const SRC_PATH = path.join(__dirname, SRC_DIR);
 
 const extractSass = new ExtractTextPlugin({
-  filename: '[name].css'
+  filename: '[name].[hash].css'
 });
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
   entry: ['./main.js'],
   output: {
     path: DIST_PATH,
-    filename: 'bundle.js'
+    filename: 'bundle.[hash].js'
   },
   module: {
     loaders: [
@@ -76,7 +76,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin([DIST_DIR], {
       watch: true,
-      exclude: ['bundle.js', 'index.html'] // permissions issues on windows without this
+      exclude: ['index.html'] // permissions issues on windows without this
     }),
     // Extract CSS file
     extractSass
