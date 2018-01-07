@@ -24,12 +24,19 @@ module.exports = {
     loaders: [
       // Babel
       {
-        loader: 'babel-loader',
         include: [path.resolve(__dirname, SRC_DIR)],
         test: /\.js[x]?$/,
-        query: {
-          presets: ['es2015']
-        }
+				use: [
+					{
+						loader: 'babel-loader',
+						query: {
+							presets: ['es2015']
+						}
+					},
+					{
+						loader: 'eslint-loader'
+					}
+				]
       },
       // SASS / CSS
       {

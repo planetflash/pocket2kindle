@@ -5,7 +5,8 @@ const hello = document.getElementById('app');
 hello.innerHTML = '<p>Hello 22!</p>';
 
 hello.addEventListener('click', e => {
-  fetch('/api/hello')
+
+	fetch('/api/hello')
     .then(resp => resp.json())
     .then(data => {
       console.log(data);
@@ -13,6 +14,8 @@ hello.addEventListener('click', e => {
     .catch(error => {
       console.error('Fetch Error', error);
     });
+
+	printMe();
 });
 
 if (process.env.NODE_ENV === 'development') {
