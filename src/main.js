@@ -1,5 +1,8 @@
+import * as helpers from './helpers/helpers.js';
 import printMe from './print.js';
 import './main.scss';
+
+console.log(helpers);
 
 const hello = document.getElementById('app');
 hello.innerHTML = '<p>Hello 22!</p>';
