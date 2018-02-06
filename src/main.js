@@ -1,24 +1,24 @@
 import * as helpers from './helpers/helpers.js';
-import printMe from './print.js';
 import './main.scss';
 
-console.log(helpers);
+const authorizePocketButton = document.getElementById('app');
+authorizePocketButton.innerHTML = '<button>Authorize Pocket</button>';
 
-const hello = document.getElementById('app');
-hello.innerHTML = '<p>Hello 22!</p>';
+authorizePocketButton.addEventListener('click', e => {
 
-hello.addEventListener('click', e => {
-
-	fetch('/api/hello')
-    .then(resp => resp.json())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Fetch Error', error);
-    });
-
-	printMe();
+	fetch('/api/pocket/requestToken')
+	  .then( response => {
+	    if (!response.ok) { throw response; }
+	    return response.json();
+	  })
+	  .then( json => {
+			console.log(json);
+	  })
+	  .catch( error => {
+	    error.text().then( errorMessage => {
+				console.error(errorMessage);
+	    })
+	  });
 });
 
 if (process.env.NODE_ENV === 'development') {
