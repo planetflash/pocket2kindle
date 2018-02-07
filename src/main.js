@@ -1,4 +1,4 @@
-import * as helpers from './helpers/helpers.js';
+import * as utils from './utils/utils.js';
 import './main.scss';
 
 const authorizePocketButton = document.getElementById('app');
