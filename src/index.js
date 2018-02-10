@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Redirect, IndexRoute } from 'react-router';
+import { Router, Route } from 'react-router';
 import { Provider } from 'react-redux';
-import AppContainer from './containers/AppContainer';
+
 import store, { history } from './store';
+
+import App from './components/App';
 
 // Polyfills
 import 'core-js/es6/map';
@@ -36,14 +38,10 @@ import './main.scss';
 const router = (
 	<Provider store={store}>
 		<Router history={history}>
-			<Route path="*" component={AppContainer}>
+			<Route path="/" component={App}>
 			</Route>
 		</Router>
 	</Provider>
 );
 
 render(router, document.querySelector('#app'));
-
-if (process.env.NODE_ENV === 'development') {
-	console.info('Running in development mode!');
-}
