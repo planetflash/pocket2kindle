@@ -1,11 +1,6 @@
-import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route } from 'react-router';
-import { Provider } from 'react-redux';
 
-import store, { history } from './store';
-
-import App from './components/App';
+import routes from './routes';
 
 // Polyfills
 import 'core-js/es6/map';
@@ -35,13 +30,4 @@ import './main.scss';
 // 	  });
 // });
 
-const router = (
-	<Provider store={store}>
-		<Router history={history}>
-			<Route path="/" component={App}>
-			</Route>
-		</Router>
-	</Provider>
-);
-
-render(router, document.querySelector('#app'));
+render(routes, document.querySelector('#app'));
