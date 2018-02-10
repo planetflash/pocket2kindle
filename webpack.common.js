@@ -33,7 +33,7 @@ module.exports = {
 			{
         test: /\.css$/,
         include: [path.resolve(__dirname, SRC_DIR)],
-				use: ['style-loader', 'css-loader'],
+				loaders: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,

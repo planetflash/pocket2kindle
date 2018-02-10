@@ -18,8 +18,11 @@ class Button extends React.Component {
 }
 
 Button.propTypes = {
-  children: PropTypes.element,
-	onCick: PropTypes.func,
+  children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.string,
+	]),
+	onClick: PropTypes.func,
 };
 
 export default Button;

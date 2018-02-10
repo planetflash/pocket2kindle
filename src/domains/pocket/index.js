@@ -10,7 +10,7 @@ class Pocket extends React.Component {
 			<div>
 				<p>Pocket component</p>
 				<Button>
-					<p>Some button text</p>
+					Some button text
 				</Button>
 			</div>
     )
