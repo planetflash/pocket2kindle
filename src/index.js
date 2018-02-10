@@ -10,6 +10,7 @@ import 'core-js/es6/set';
 import 'core-js/fn/set';
 import 'core-js/fn/array/from';
 
+import './reset.css';
 import './main.scss';
 
 // const pocketButton = document.getElementById('app');

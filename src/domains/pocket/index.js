@@ -8,7 +8,7 @@ class Pocket extends React.Component {
 	render() {
 		return (
 			<div>
-				<p>Pocket1 component</p>
+				<p>Pocket component</p>
 				<Button>
 					<p>Some button text</p>
 				</Button>

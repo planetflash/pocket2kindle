@@ -25,13 +25,18 @@ module.exports = {
     loaders: [
       // Babel
       {
+				test: /\.js[x]?$/,
         include: [path.resolve(__dirname, SRC_DIR)],
-        test: /\.js[x]?$/,
 				loaders: ['babel-loader', 'eslint-loader']
       },
-      // SASS / CSS
+      // CSS
+			{
+        test: /\.css$/,
+        include: [path.resolve(__dirname, SRC_DIR)],
+				use: ['style-loader', 'css-loader'],
+      },
       {
-        test: /\.[s]css$/,
+        test: /\.scss$/,
         include: [path.resolve(__dirname, SRC_DIR)],
         use: extractSass.extract({
           use: [
