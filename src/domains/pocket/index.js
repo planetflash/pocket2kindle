@@ -1,20 +1,11 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from './actions';
 
-// components
-import Button from '../../components/Button/';
-
-class Pocket extends React.Component {
-
-	render() {
-		return (
-			<div>
-				<p>Pocket component</p>
-				<Button>
-					Some button text
-				</Button>
-			</div>
-    )
-  }
+function mapStateToProps(state) {
+  return {...state};
 }
 
-export default Pocket;
+export default connect(
+	mapStateToProps,
+	actions,
+)(Component);

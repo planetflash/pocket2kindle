@@ -7,12 +7,14 @@ import rootReducer from './reducers';
 
 const sagaMiddleware = createSagaMiddleware();
 
+const initialState = {};
+
 const enhancers = compose(
 	applyMiddleware(sagaMiddleware),
 	window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
-const store = createStore(rootReducer, {}, enhancers);
+const store = createStore(rootReducer, initialState, enhancers);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
