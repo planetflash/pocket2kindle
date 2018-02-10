@@ -6,6 +6,14 @@
 	    }
 		],
 		"stage-0",
-		"react"
-	]
+		"react",
+	],
+	"plugins": [
+		"react-hot-loader/babel",
+	],
+	"env": {
+    "development": {
+      "presets": ["react-hmre"]
+    }
+  }
 }

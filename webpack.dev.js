@@ -15,7 +15,8 @@ module.exports = merge(common, {
     // Proxy to API backend
     proxy: {
       '/api': 'http://localhost:8080'
-    }
+    },
+		hot: true,
   },
   plugins: [
     new webpack.DefinePlugin({

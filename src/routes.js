@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 
 import store, { history } from './store';
 
-import App from './components/App';
+import Pocket from './domains/pocket/';
 
 const routes = (
 	<Provider store={store}>
 		<Router history={history}>
-			<Route path="/" component={App}>
+			<Route path="/" component={Pocket}>
 			</Route>
 		</Router>
 	</Provider>

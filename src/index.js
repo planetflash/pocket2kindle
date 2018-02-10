@@ -1,4 +1,6 @@
+import React from 'react';
 import { render } from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
 import routes from './routes';
 
@@ -30,4 +32,9 @@ import './main.scss';
 // 	  });
 // });
 
-render(routes, document.querySelector('#app'));
+render(
+	<AppContainer>
+	{ routes }
+	</AppContainer>,
+	document.getElementById('app')
+);

@@ -15,9 +15,10 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
   context: SRC_PATH,
-  entry: ['babel-polyfill', './index.js'],
+  entry: ['babel-polyfill', 'react-hot-loader/patch', './index.js'],
   output: {
     path: DIST_PATH,
+		publicPath: '/',
     filename: 'bundle.[hash].js'
   },
   module: {
