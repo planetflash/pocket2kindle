@@ -27,7 +27,7 @@ module.exports = {
       {
 				test: /\.js[x]?$/,
         include: [path.resolve(__dirname, SRC_DIR)],
-				loaders: ['babel-loader', 'eslint-loader']
+				loaders: ['babel-loader']
       },
       // CSS
 			{
