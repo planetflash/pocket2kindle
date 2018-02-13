@@ -1,5 +1,4 @@
-import { put, call, fork, takeLatest } from 'redux-saga/effects';
-import * as actions from './actions';
+import { all, takeLatest } from 'redux-saga/effects';
 import {
 	POCKET_GET_REQUEST_TOKEN,
 	// POCKET_GET_REQUEST_TOKEN_SUCCESS,
@@ -45,12 +44,7 @@ function* getRequestToken(action) {
 	// 	yield put(actions.addError(error, 'journeyPlanner'));
 	// }
 }
-function* watchGetRequestToken() {
-  yield takeLatest(POCKET_GET_REQUEST_TOKEN, getRequestToken);
-}
 
-export default function* root() {
-  yield all([
-		fork(watchGetRequestToken),
-  ])
-}
+export default [
+	takeLatest(POCKET_GET_REQUEST_TOKEN, getRequestToken),
+];

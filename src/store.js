@@ -4,6 +4,9 @@ import { browserHistory } from 'react-router';
 import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './reducers';
+import sagas from './sagas';
+
+console.log(sagas);
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,6 +18,8 @@ const enhancers = compose(
 );
 
 const store = createStore(rootReducer, initialState, enhancers);
+
+sagaMiddleware.run(sagas);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
