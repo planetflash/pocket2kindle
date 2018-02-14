@@ -6,8 +6,6 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 import sagas from './sagas';
 
-console.log(sagas);
-
 const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {};

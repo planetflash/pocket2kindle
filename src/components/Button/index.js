@@ -9,7 +9,7 @@ class Button extends React.Component {
 		return (
 			<a
 				className="btn"
-				onClick={this.props.onClick}
+				{...this.props}
 			>
 				{ this.props.children }
 			</a>
@@ -22,7 +22,6 @@ Button.propTypes = {
 		PropTypes.element,
 		PropTypes.string,
 	]),
-	onClick: PropTypes.func,
 }
 
 export default Button;

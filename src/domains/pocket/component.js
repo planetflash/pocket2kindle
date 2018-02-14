@@ -31,7 +31,7 @@ class PocketComponent extends React.Component {
 			<div>
 				<p>Pocket component</p>
 				<Button
-					onClick={ (e) => this.authenticatePocket(e)}
+					onClick={ (e) => this.authenticatePocket(e) }
 				>
 					Authenticate Pocket
 				</Button>

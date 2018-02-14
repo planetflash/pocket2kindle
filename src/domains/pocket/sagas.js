@@ -8,8 +8,6 @@ import {
 // Get Request Token
 function* getRequestToken(action) {
 
-	console.log(action);
-
 	// const { JPOptions } = action.params;
   //
 	// // Build array of methods (always use swpti(transit) and Google(walking))

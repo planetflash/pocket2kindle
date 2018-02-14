@@ -5,7 +5,6 @@ import {
  } from './constants';
 
 export const getRequestToken = (params) => {
-	console.log(params);
 	return {
 		type: POCKET_GET_REQUEST_TOKEN,
 		params,
