@@ -29,10 +29,14 @@ class PocketComponent extends React.Component {
 	}
 
 	render() {
+
+		const { loading } = this.props.status;
+
 		return (
 			<div>
 				<p>Pocket component</p>
 				<Button
+					loading={loading}
 					onClick={ (e) => this.authenticatePocket(e) }
 				>
 					Authenticate Pocket
@@ -48,7 +52,7 @@ PocketComponent.propTypes = {
 		putRequestTokenFailure: PropTypes.func.isRequired,
 		putRequestTokenSuccess: PropTypes.func.isRequired,
 	}),
-	state: PropTypes.shape({
+	status: PropTypes.shape({
 	 	 loading: PropTypes.bool.isRequired,
 	 	 error: PropTypes.bool.isRequired,
 	})

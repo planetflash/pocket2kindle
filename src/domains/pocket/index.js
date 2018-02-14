@@ -6,7 +6,7 @@ import Component from './component';
 
 function mapStateToProps(state) {
 	return {
-		state: state.pocketReducer,
+		status: state.pocketReducer,
 	}
 }
 
