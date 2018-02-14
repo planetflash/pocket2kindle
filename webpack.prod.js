@@ -5,6 +5,7 @@ const common = require('./webpack.common.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = merge(common, {
+	entry: ['./index.js'],
   devtool: 'source-map',
   plugins: [
     new UglifyJSPlugin({
