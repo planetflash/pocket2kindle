@@ -9,7 +9,9 @@ class PocketComponent extends React.Component {
 	authenticatePocket = (e) => {
 		e && e.preventDefault();
 
-		this.props.getRequestToken({ test: 'test' });
+		const { getRequestToken } = this.props.actions;
+
+		getRequestToken({ test: 'test' });
 
 		// 	fetch('/api/pocket/requestToken')
 		// 	  .then( response => {
@@ -41,7 +43,15 @@ class PocketComponent extends React.Component {
 }
 
 PocketComponent.propTypes = {
-	getRequestToken: PropTypes.func.isRequired,
+	actions: PropTypes.shape({
+		getRequestToken: PropTypes.func.isRequired,
+		putRequestTokenFailure: PropTypes.func.isRequired,
+		putRequestTokenSuccess: PropTypes.func.isRequired,
+	}),
+	state: PropTypes.shape({
+	 	 loading: PropTypes.bool.isRequired,
+	 	 error: PropTypes.bool.isRequired,
+	})
 }
 
 export default PocketComponent;
