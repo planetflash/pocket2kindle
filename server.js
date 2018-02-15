@@ -8,7 +8,7 @@ app.set('port', PORT);
 
 const config = {
 	consumer_key: '73087-c39a4369f05b564f44417800',
-	redirect_uri: 'http://localhost:3000/',
+	redirect_uri: 'http://localhost:3000/pocketAuth',
 	request_token: null,
 };
 

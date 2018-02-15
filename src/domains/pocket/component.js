@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 // components
 import Button from '../../components/Button/';
@@ -11,21 +12,19 @@ class PocketComponent extends React.Component {
 
 		const { getRequestToken } = this.props.actions;
 
-		getRequestToken({ test: 'test' });
+		getRequestToken();
+	}
 
-		// 	fetch('/api/pocket/requestToken')
-		// 	  .then( response => {
-		// 	    if (!response.ok) { throw response; }
-		// 	    return response.json();
-		// 	  })
-		// 	  .then( json => {
-		// 			console.log(json);
-		// 	  })
-		// 	  .catch( error => {
-		// 	    error.text().then( errorMessage => {
-		// 				console.error(errorMessage);
-		// 	    })
-		// 	  });
+	handleRedriect = (url) => {
+		window.location.href = url;
+	}
+
+	componentDidUpdate(prevProps) {
+
+		const hasURL = _.has(this.props, 'status.result.url');
+		if ( hasURL ) {
+			this.handleRedriect(this.props.status.result.url);
+		}
 	}
 
 	render() {

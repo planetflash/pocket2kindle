@@ -1,7 +1,7 @@
 import {
 	POCKET_GET_REQUEST_TOKEN,
-	// POCKET_GET_REQUEST_TOKEN_SUCCESS,
-	// POCKET_GET_REQUEST_TOKEN_FAILURE,
+	POCKET_GET_REQUEST_TOKEN_SUCCESS,
+	POCKET_GET_REQUEST_TOKEN_FAILURE,
  } from './constants';
 
  const initialState = {
@@ -20,6 +20,24 @@ import {
 				...state,
 				loading: true,
 				error: false,
+				result: null,
+			};
+
+		case POCKET_GET_REQUEST_TOKEN_SUCCESS:
+
+			return {
+				...state,
+				loading: false,
+				error: false,
+				result: action.payload,
+			};
+
+		case POCKET_GET_REQUEST_TOKEN_FAILURE:
+
+			return {
+				...state,
+				loading: false,
+				error: action.payload,
 				result: null,
 			};
 

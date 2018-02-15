@@ -11,14 +11,14 @@ export const getRequestToken = (params) => {
 	}
 }
 
-export const putRequestTokenFailure = (payload) => {
+export const putRequestTokenSuccess = (payload) => {
 	return {
 		type: POCKET_GET_REQUEST_TOKEN_SUCCESS,
 		payload,
 	}
 }
 
-export const putRequestTokenSuccess = (payload) => {
+export const putRequestTokenFailure = (payload) => {
 	return {
 		type: POCKET_GET_REQUEST_TOKEN_FAILURE,
 		payload,
