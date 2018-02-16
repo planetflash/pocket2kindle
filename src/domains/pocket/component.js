@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { history } from '../../store';
 
 // components
 import Button from '../../components/Button/';
 
 class PocketComponent extends React.Component {
 
-	authenticatePocket = (e) => {
+	getRequestToken = (e) => {
 		e && e.preventDefault();
 
 		const { getRequestToken } = this.props.actions;
@@ -19,8 +20,27 @@ class PocketComponent extends React.Component {
 		window.location.href = url;
 	}
 
+	getAccessToken = (e) => {
+		e && e.preventDefault();
+
+		const { getAccessToken } = this.props.actions;
+
+		getAccessToken();
+	}
+
+	componentDidMount() {
+
+		// Authenticate Pocket on return from user authentication
+		const query = history.getCurrentLocation().query;
+		if( query && query.authenticate ) {
+
+			this.getAccessToken();
+		}
+	}
+
 	componentDidUpdate(prevProps) {
 
+		// Redirect to Pocket once redirect url is received
 		const hasURL = _.has(this.props, 'status.result.url');
 		if ( hasURL ) {
 			this.handleRedriect(this.props.status.result.url);
@@ -36,7 +56,7 @@ class PocketComponent extends React.Component {
 				<p>Pocket component</p>
 				<Button
 					loading={loading}
-					onClick={ (e) => this.authenticatePocket(e) }
+					onClick={ (e) => this.getRequestToken(e) }
 				>
 					Authenticate Pocket
 				</Button>
