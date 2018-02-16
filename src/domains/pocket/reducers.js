@@ -1,7 +1,10 @@
 import {
 	POCKET_GET_REQUEST_TOKEN,
+	POCKET_GET_ACCESS_TOKEN,
 	POCKET_GET_REQUEST_TOKEN_SUCCESS,
+	POCKET_GET_ACCESS_TOKEN_SUCCESS,
 	POCKET_GET_REQUEST_TOKEN_FAILURE,
+	POCKET_GET_ACCESS_TOKEN_FAILURE,
  } from './constants';
 
  const initialState = {
@@ -15,6 +18,7 @@ import {
 	switch(action.type) {
 
 		case POCKET_GET_REQUEST_TOKEN:
+		case POCKET_GET_ACCESS_TOKEN:
 
 			return {
 				...state,
@@ -24,6 +28,7 @@ import {
 			};
 
 		case POCKET_GET_REQUEST_TOKEN_SUCCESS:
+		case POCKET_GET_ACCESS_TOKEN_SUCCESS:
 
 			return {
 				...state,
@@ -33,6 +38,7 @@ import {
 			};
 
 		case POCKET_GET_REQUEST_TOKEN_FAILURE:
+		case POCKET_GET_ACCESS_TOKEN_FAILURE:
 
 			return {
 				...state,
