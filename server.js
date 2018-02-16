@@ -6,18 +6,17 @@ const app = express();
 
 app.set('port', PORT);
 
-const config = {
+app.locals.config = {
 	consumer_key: '73087-c39a4369f05b564f44417800',
 	redirect_uri: 'http://localhost:3000/?authenticate=true',
 	request_token: null,
 };
 
-const pocket = new GetPocket(config);
+const pocket = new GetPocket(app.locals.config);
 
 app.get('/api/pocket/requestToken', (req, res) => {
 
 	app.locals.res = res;
-	app.locals.config = config;
 
 	const params = {
 		redirect_uri: app.locals.config.redirect_uri
@@ -53,10 +52,9 @@ app.get('/api/pocket/requestToken', (req, res) => {
 app.get('/api/pocket/accessToken', (req, res) => {
 
 	app.locals.res = res;
-	app.locals.config = config;
 
 	const params = {
-		request_token: config.request_token
+		request_token: app.locals.config.request_token
 	};
 
 	pocket.getAccessToken(params, function access_token_handler(error, response, body) {

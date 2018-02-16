@@ -20,9 +20,8 @@ class PocketComponent extends React.Component {
 		window.location.href = url;
 	}
 
-	getAccessToken = (e) => {
-		e && e.preventDefault();
-
+	getAccessToken = () => {
+		
 		const { getAccessToken } = this.props.actions;
 
 		getAccessToken();
