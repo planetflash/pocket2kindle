@@ -14,12 +14,12 @@
     "dev-server": "nodemon ./server.js",
     "dev-client": "webpack-dev-server --open --config webpack.dev.js",
     "start": "concurrently -p '[{name}]' -n 'dev-server,dev-client,webpack' -c 'yellow.bold,blue.bold,magenta.bold,' 'npm run dev-server' 'npm run dev-client' 'npm run watch'",
-    "test": "jest",
-		"precommit": "lint-staged"
+    "test": "jest"
   },
 	"lint-staged": {
     "src/**/*.js": ["prettier --write"]
   },
+	"pre-commit": ["lint-staged"],
   "author": "Paul Thomas",
   "license": "MIT",
   "dependencies": {
