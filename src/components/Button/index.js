@@ -2,6 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import { mergePropsWithAvailableProps } from '../../utils';
+import events from '../events';
+
+const availableProps = {
+	...events.mouse,
+	...events.touch,
+}
+
 import './style.scss';
 
 class Button extends React.Component {
@@ -15,8 +23,8 @@ class Button extends React.Component {
 
 		return (
 			<a
-				onClick={this.props.onClick}
 				className={classes}
+				{...mergePropsWithAvailableProps(availableProps, this.props)}
 			>
 				{ this.props.children }
 			</a>

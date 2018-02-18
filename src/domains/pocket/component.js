@@ -21,7 +21,7 @@ class PocketComponent extends React.Component {
 	}
 
 	getAccessToken = () => {
-		
+
 		const { getAccessToken } = this.props.actions;
 
 		getAccessToken();
@@ -71,8 +71,12 @@ PocketComponent.propTypes = {
 		putRequestTokenSuccess: PropTypes.func.isRequired,
 	}),
 	status: PropTypes.shape({
-	 	 loading: PropTypes.bool.isRequired,
-	 	 error: PropTypes.bool.isRequired,
+		loading: PropTypes.bool.isRequired,
+		error:  PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.bool,
+		]).isRequired,
+		result: PropTypes.object,
 	})
 }
 
