@@ -15,12 +15,13 @@
     "dev-client": "webpack-dev-server --open --config webpack.dev.js",
     "start": "concurrently -p '[{name}]' -n 'dev-server,dev-client,webpack' -c 'yellow.bold,blue.bold,magenta.bold,' 'npm run dev-server' 'npm run dev-client' 'npm run watch'",
     "test": "jest",
-		"prepush": "npm test",
+    "prepush": "npm test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "src/**/*.js": [
       "prettier --write",
+      "eslint",
       "git add"
     ]
   },
@@ -34,6 +35,7 @@
     "autoprefixer": "^7.2.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
@@ -44,6 +46,9 @@
     "clean-webpack-plugin": "^0.1.17",
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.7",
+    "eslint": "^4.18.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
