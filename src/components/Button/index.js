@@ -1,44 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import { mergePropsWithAvailableProps } from '../../utils';
-import events from '../events';
+import { mergePropsWithAvailableProps } from "../../utils";
+import events from "../events";
 
 const availableProps = {
-	...events.mouse,
-	...events.touch,
-}
+  ...events.mouse,
+  ...events.touch
+};
 
-import './style.scss';
+import "./style.scss";
 
 class Button extends React.Component {
-
-	render() {
-
-		const classes = classNames({
+  render() {
+    const classes = classNames({
       btn: true,
-      loading: this.props.loading,
+      loading: this.props.loading
     });
 
-		return (
-			<a
-				className={classes}
-				{...mergePropsWithAvailableProps(availableProps, this.props)}
-			>
-				{ this.props.children }
-			</a>
-    )
+    return (
+      <a
+        className={classes}
+        {...mergePropsWithAvailableProps(availableProps, this.props)}
+      >
+        {this.props.children}
+      </a>
+    );
   }
 }
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.string,
-	]),
-	onClick: PropTypes.func,
-	loading: PropTypes.bool,
-}
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  onClick: PropTypes.func,
+  loading: PropTypes.bool
+};
 
 export default Button;

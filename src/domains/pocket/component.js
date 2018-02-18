@@ -1,83 +1,71 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
-import { history } from '../../store';
+import React from "react";
+import PropTypes from "prop-types";
+import _ from "lodash";
+import { history } from "../../store";
 
 // components
-import Button from '../../components/Button/';
+import Button from "../../components/Button/";
 
 class PocketComponent extends React.Component {
+  getRequestToken = e => {
+    e && e.preventDefault();
 
-	getRequestToken = (e) => {
-		e && e.preventDefault();
+    const { getRequestToken } = this.props.actions;
 
-		const { getRequestToken } = this.props.actions;
+    getRequestToken();
+  };
 
-		getRequestToken();
-	}
+  handleRedriect = url => {
+    window.location.href = url;
+  };
 
-	handleRedriect = (url) => {
-		window.location.href = url;
-	}
+  getAccessToken = () => {
+    const { getAccessToken } = this.props.actions;
 
-	getAccessToken = () => {
+    getAccessToken();
+  };
 
-		const { getAccessToken } = this.props.actions;
+  componentDidMount() {
+    // Authenticate Pocket on return from user authentication
+    const query = history.getCurrentLocation().query;
+    if (query && query.authenticate) {
+      this.getAccessToken();
+    }
+  }
 
-		getAccessToken();
-	}
+  componentDidUpdate(prevProps) {
+    // Redirect to Pocket once redirect url is received
+    const hasURL = _.has(this.props, "status.result.url");
+    if (hasURL) {
+      this.handleRedriect(this.props.status.result.url);
+    }
+  }
 
-	componentDidMount() {
+  render() {
+    const { loading } = this.props.status;
 
-		// Authenticate Pocket on return from user authentication
-		const query = history.getCurrentLocation().query;
-		if( query && query.authenticate ) {
-
-			this.getAccessToken();
-		}
-	}
-
-	componentDidUpdate(prevProps) {
-
-		// Redirect to Pocket once redirect url is received
-		const hasURL = _.has(this.props, 'status.result.url');
-		if ( hasURL ) {
-			this.handleRedriect(this.props.status.result.url);
-		}
-	}
-
-	render() {
-
-		const { loading } = this.props.status;
-
-		return (
-			<div>
-				<p>Pocket component</p>
-				<Button
-					loading={loading}
-					onClick={ (e) => this.getRequestToken(e) }
-				>
-					Authenticate Pocket
-				</Button>
-			</div>
-    )
+    return (
+      <div>
+        <p>Pocket component</p>
+        <Button loading={loading} onClick={e => this.getRequestToken(e)}>
+          Authenticate Pocket
+        </Button>
+      </div>
+    );
   }
 }
 
 PocketComponent.propTypes = {
-	actions: PropTypes.shape({
-		getRequestToken: PropTypes.func.isRequired,
-		putRequestTokenFailure: PropTypes.func.isRequired,
-		putRequestTokenSuccess: PropTypes.func.isRequired,
-	}),
-	status: PropTypes.shape({
-		loading: PropTypes.bool.isRequired,
-		error:  PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.bool,
-		]).isRequired,
-		result: PropTypes.object,
-	})
-}
+  actions: PropTypes.shape({
+    getRequestToken: PropTypes.func.isRequired,
+    putRequestTokenFailure: PropTypes.func.isRequired,
+    putRequestTokenSuccess: PropTypes.func.isRequired
+  }),
+  status: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+    result: PropTypes.object
+  })
+};
 
 export default PocketComponent;

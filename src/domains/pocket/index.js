@@ -1,22 +1,19 @@
-import { connect } from 'react-redux';
-import * as actions from './actions';
-import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
+import * as actions from "./actions";
+import { bindActionCreators } from "redux";
 
-import Component from './component';
+import Component from "./component";
 
 function mapStateToProps(state) {
-	return {
-		status: state.pocketReducer,
-	}
+  return {
+    status: state.pocketReducer
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-		actions: bindActionCreators(actions, dispatch)
-	}
+    actions: bindActionCreators(actions, dispatch)
+  };
 }
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps,
-)(Component);
+export default connect(mapStateToProps, mapDispatchToProps)(Component);

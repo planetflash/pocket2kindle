@@ -2,17 +2,17 @@ const events = {
   clipboard: {
     onCopy: null,
     onCut: null,
-    onPaste: null,
+    onPaste: null
   },
   composition: {
     onCompositionEnd: null,
     onCompositionStart: null,
-    onCompositionUpdate: null,
+    onCompositionUpdate: null
   },
   keyboard: {
     onKeyDown: null,
     onKeyPress: null,
-    onKeyUp: null,
+    onKeyUp: null
   },
   mouse: {
     onClick: null,
@@ -32,26 +32,26 @@ const events = {
     onMouseMove: null,
     onMouseOut: null,
     onMouseOver: null,
-    onMouseUp: null,
+    onMouseUp: null
   },
   touch: {
     onTouchCancel: null,
     onTouchEnd: null,
     onTouchMove: null,
-    onTouchStart: null,
+    onTouchStart: null
   },
   focus: {
     onFocus: null,
-    onBlur: null,
+    onBlur: null
   },
   selection: {
-    onSelect: null,
+    onSelect: null
   },
   ui: {
-    onScroll: null,
+    onScroll: null
   },
   wheel: {
-    onWheel: null,
+    onWheel: null
   },
   media: {
     onAbort: null,
@@ -76,29 +76,29 @@ const events = {
     onSuspend: null,
     onTimeUpdate: null,
     onVolumeChange: null,
-    onWaiting: null,
+    onWaiting: null
   },
   form: {
     onChange: null,
     onInput: null,
     onInvalid: null,
-    onSubmit: null,
+    onSubmit: null
   },
   image: {
     onLoad: null,
-    onError: null,
+    onError: null
   },
   animation: {
     onAnimationStart: null,
     onAnimationEnd: null,
-    onAnimationIteration: null,
+    onAnimationIteration: null
   },
   transition: {
-    onTransitionEnd: null,
+    onTransitionEnd: null
   },
   other: {
-    onToggle: null,
-  },
+    onToggle: null
+  }
 };
 
 export default events;

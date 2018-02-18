@@ -1,7 +1,4 @@
-import sum from './sum/';
-import mergePropsWithAvailableProps from './mergePropsWithAvailableProps/';
+import sum from "./sum/";
+import mergePropsWithAvailableProps from "./mergePropsWithAvailableProps/";
 
-export {
-	sum,
-	mergePropsWithAvailableProps,
-};
+export { sum, mergePropsWithAvailableProps };
