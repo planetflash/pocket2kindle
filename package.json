@@ -15,7 +15,7 @@
     "dev-client": "webpack-dev-server --open --config webpack.dev.js",
     "start": "concurrently -p '[{name}]' -n 'dev-server,dev-client,webpack' -c 'yellow.bold,blue.bold,magenta.bold,' 'npm run dev-server' 'npm run dev-client' 'npm run watch'",
     "test": "jest",
-    "precommit": "lint-staged"
+    "precommit": "npm test && lint-staged"
   },
   "lint-staged": {
     "src/**/*.js": [
