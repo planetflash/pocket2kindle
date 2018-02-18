@@ -19,6 +19,8 @@ class Button extends React.Component {
       loading: this.props.loading
     });
 
+		const testChange = true;
+
     return (
       <a
         className={classes}
