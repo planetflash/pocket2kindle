@@ -18,7 +18,7 @@
 		"precommit": "lint-staged"
   },
 	"lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write"]
+    "src/**/*.js": ["prettier --write"]
   },
   "author": "Paul Thomas",
   "license": "MIT",

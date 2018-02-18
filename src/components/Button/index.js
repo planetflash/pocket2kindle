@@ -19,7 +19,7 @@ class Button extends React.Component {
       loading: this.props.loading
     });
 
-		const testChange = true;
+		const testChange = true
 
     return (
       <a
