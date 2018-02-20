@@ -33,7 +33,7 @@ class PocketComponent extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     // Redirect to Pocket once redirect url is received
     const hasURL = _.has(this.props, "status.result.url");
     if (hasURL) {
@@ -59,7 +59,10 @@ PocketComponent.propTypes = {
   actions: PropTypes.shape({
     getRequestToken: PropTypes.func.isRequired,
     putRequestTokenFailure: PropTypes.func.isRequired,
-    putRequestTokenSuccess: PropTypes.func.isRequired
+    putRequestTokenSuccess: PropTypes.func.isRequired,
+    getAccessToken: PropTypes.func.isRequired,
+    putAccessTokenFailure: PropTypes.func.isRequired,
+    putAccessTokenSuccess: PropTypes.func.isRequired
   }),
   status: PropTypes.shape({
     loading: PropTypes.bool.isRequired,

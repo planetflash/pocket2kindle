@@ -4,7 +4,7 @@ import * as service from "./service";
 import * as actions from "./actions";
 
 // Get Request Token
-function* getRequestToken(action) {
+function* getRequestToken() {
   try {
     const response = yield call(service.getRequestToken);
 
@@ -15,7 +15,7 @@ function* getRequestToken(action) {
 }
 
 // Get Access Token
-function* getAccessToken(action) {
+function* getAccessToken() {
   try {
     const response = yield call(service.getAccessToken);
 
