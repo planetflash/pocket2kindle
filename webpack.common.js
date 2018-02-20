@@ -13,6 +13,8 @@ const extractSass = new ExtractTextPlugin({
   filename: '[name].[hash].css'
 });
 
+const sassResources = require(SRC_PATH + '/sass/utils.js');
+
 module.exports = {
   context: SRC_PATH,
   output: {
@@ -43,7 +45,7 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 sourceMap: true,
-                importLoaders: 2
+								importLoaders: 3
               }
             },
             {
@@ -62,7 +64,13 @@ module.exports = {
               options: {
                 sourceMap: true
               }
-            }
+            },
+						{
+		          loader: 'sass-resources-loader',
+		          options: {
+		            resources: sassResources,
+		          },
+		        },
           ],
           // use style-loader in development
           fallback: 'style-loader'
