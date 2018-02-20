@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 
 import store, { history } from "./store";
 
-import Pocket from "./domains/pocket/";
+import Pocket from "./containers/pocket/";
 
 const routes = (
   <Provider store={store}>

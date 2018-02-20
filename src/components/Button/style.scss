@@ -1,9 +1,11 @@
+@import '../../sass/utils.scss';
+
 .btn {
 	position: relative;
 	display: inline-block;
 	padding: 1em 2em;
-	background: blue;
-	color: white;
+	background: $primary;
+	color: $white;
 	cursor: pointer;
 
 	// Loading message/spinner
@@ -14,11 +16,11 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 		opacity: 0;
-		color: white;
+		color: $white;
 	}
 
 	&.loading {
-		color: blue;
+		color: $primary;
 
 		&::before{
 			opacity: 1;

@@ -1,0 +1,17 @@
+/* Base */
+*,
+:before,
+:after {
+  box-sizing:border-box;
+  -webkit-font-smoothing: antialiased !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+::-ms-clear { display: none; }
+
+a {
+}
+
+svg {
+	overflow: visible;
+}

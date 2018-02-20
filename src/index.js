@@ -4,8 +4,6 @@ import { AppContainer } from "react-hot-loader";
 
 import routes from "./routes";
 
-// Styles
-import "./reset.css";
-import "./main.scss";
+import "./sass/theme.scss";
 
 render(<AppContainer>{routes}</AppContainer>, document.getElementById("app"));
