@@ -32,7 +32,6 @@ class Button extends React.Component {
 
 Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  onClick: PropTypes.func,
   loading: PropTypes.bool
 };
 

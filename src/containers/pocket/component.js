@@ -5,6 +5,7 @@ import { history } from "../../store";
 
 // components
 import Button from "../../components/Button/";
+import Error from "../../components/Error/";
 
 class PocketComponent extends React.Component {
   getRequestToken = e => {
@@ -42,14 +43,17 @@ class PocketComponent extends React.Component {
   }
 
   render() {
-    const { loading } = this.props.status;
+    const { loading, error } = this.props.status;
 
     return (
       <div>
-        <p>Pocket component</p>
+        <h1>Pocket component</h1>
+
         <Button loading={loading} onClick={e => this.getRequestToken(e)}>
           Authenticate Pocket
         </Button>
+
+        {error && <Error message={error} />}
       </div>
     );
   }
