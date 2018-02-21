@@ -1,4 +1,5 @@
 .btn {
+	@include transition;
 	position: relative;
 	display: inline-block;
 	padding: 1em 2em;
@@ -17,8 +18,16 @@
 		color: $white;
 	}
 
+	&:hover {
+		opacity: 0.75;
+	}
+	&:active {
+		opacity: 0.9;
+	}
+
 	&.loading {
 		color: $primary;
+		opacity: 1;
 
 		&::before{
 			opacity: 1;
