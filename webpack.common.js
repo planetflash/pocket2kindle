@@ -93,5 +93,9 @@ module.exports = {
     }),
     // Extract CSS file
     extractSass
-  ]
+  ],
+	resolve: {
+    modules: ['node_modules', 'src'],
+    extensions: ['.js', '.jsx', '.css', '.scss'],
+  }
 };
