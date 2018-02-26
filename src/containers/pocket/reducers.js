@@ -9,7 +9,8 @@ import {
 
 const initialState = {
   loading: false,
-  error: false,
+  // error: null,
+  error: "test error",
   result: null
 };
 
@@ -20,7 +21,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: false,
+        error: null,
         result: null
       };
 
@@ -29,7 +30,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: false,
+        error: null,
         result: action.payload
       };
 

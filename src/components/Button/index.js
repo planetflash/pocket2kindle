@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import { mergePropsWithAvailableProps } from "../../utils";
-import events from "../events";
+import { mergePropsWithAvailableProps } from "utils";
+import events from "events";
 
 const availableProps = {
   ...events.mouse,

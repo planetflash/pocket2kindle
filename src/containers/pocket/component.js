@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
-import { history } from "../../store";
+import { history } from "store";
 
 // components
-import Button from "../../components/Button/";
-import Error from "../../components/Error/";
+import Button from "components/Button/";
+import Error from "components/Error/";
 
 class PocketComponent extends React.Component {
   getRequestToken = e => {
@@ -55,7 +55,7 @@ class PocketComponent extends React.Component {
           text={"Authenticate Pocket"}
         />
 
-        {error && <Error message={error} />}
+        <Error message={error} />
       </div>
     );
   }
