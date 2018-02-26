@@ -49,9 +49,11 @@ class PocketComponent extends React.Component {
       <div>
         <h1>Pocket component</h1>
 
-        <Button loading={loading} onClick={e => this.getRequestToken(e)}>
-          Authenticate Pocket
-        </Button>
+        <Button
+          loading={loading}
+          onClick={e => this.getRequestToken(e)}
+          text={"Authenticate Pocket"}
+        />
 
         {error && <Error message={error} />}
       </div>

@@ -14,9 +14,11 @@ import "./style.scss";
 
 class Button extends React.Component {
   render() {
+    const { text, loading } = this.props;
+
     const classes = classNames({
       btn: true,
-      loading: this.props.loading
+      loading
     });
 
     return (
@@ -24,14 +26,14 @@ class Button extends React.Component {
         className={classes}
         {...mergePropsWithAvailableProps(availableProps, this.props)}
       >
-        {this.props.children}
+        <span className="text">{text}</span>
       </a>
     );
   }
 }
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  text: PropTypes.string,
   loading: PropTypes.bool
 };
 
