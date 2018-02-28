@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Fade from "transitions/Fade";
+import Slide from "transitions/Slide";
 
 import "./style.scss";
 
@@ -11,6 +12,7 @@ const Error = ({ message }) => {
   return (
     <div className="error">
       <Fade in={showError}>{message}</Fade>
+      <Slide in={showError}>{message}</Slide>
     </div>
   );
 };
