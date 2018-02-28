@@ -44,12 +44,14 @@ class PocketComponent extends React.Component {
 
   render() {
     const { loading, error } = this.props.status;
+    const hasError = error !== null ? true : false;
 
     return (
       <div>
         <h1>Pocket component</h1>
 
         <Button
+          error={hasError}
           loading={loading}
           onClick={e => this.getRequestToken(e)}
           text={"Authenticate Pocket"}

@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import { mergePropsWithAvailableProps } from "utils";
 import events from "events";
+import Shake from "transitions/Shake";
 
 const availableProps = {
   ...events.mouse,
@@ -14,7 +15,7 @@ import "./style.scss";
 
 class Button extends React.Component {
   render() {
-    const { text, loading } = this.props;
+    const { text, loading, error } = this.props;
 
     const classes = classNames({
       btn: true,
@@ -22,19 +23,22 @@ class Button extends React.Component {
     });
 
     return (
-      <a
-        className={classes}
-        {...mergePropsWithAvailableProps(availableProps, this.props)}
-      >
-        <span className="text">{text}</span>
-      </a>
+      <Shake in={error}>
+        <a
+          className={classes}
+          {...mergePropsWithAvailableProps(availableProps, this.props)}
+        >
+          <span className="text">{text}</span>
+        </a>
+      </Shake>
     );
   }
 }
 
 Button.propTypes = {
   text: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  error: PropTypes.bool
 };
 
 export default Button;
