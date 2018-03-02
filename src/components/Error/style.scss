@@ -1,4 +1,4 @@
 .error {
-	color: $error;
-	font-weight: 700;
+  color: map-get($colors, error);
+  font-weight: 700;
 }

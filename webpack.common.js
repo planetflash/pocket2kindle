@@ -1,40 +1,43 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const sass = require("node-sass");
+const sassUtils = require("node-sass-utils")(sass);
 
-const DIST_DIR = 'dist';
+const DIST_DIR = "dist";
 const DIST_PATH = path.join(__dirname, DIST_DIR);
-const SRC_DIR = 'src';
+const SRC_DIR = "src";
 const SRC_PATH = path.join(__dirname, SRC_DIR);
 
-const extractSass = new ExtractTextPlugin({
-  filename: '[name].[hash].css'
-});
+const sassVars = require(SRC_PATH + "/theme.js");
+const sassResources = require(SRC_PATH + "/sass/utils.js");
 
-const sassResources = require(SRC_PATH + '/sass/utils.js');
+const extractSass = new ExtractTextPlugin({
+  filename: "[name].[hash].css"
+});
 
 module.exports = {
   context: SRC_PATH,
   output: {
     path: DIST_PATH,
-		publicPath: '/',
-    filename: 'bundle.[hash].js'
+    publicPath: "/",
+    filename: "bundle.[hash].js"
   },
   module: {
     loaders: [
       // Babel
       {
-				test: /\.js[x]?$/,
+        test: /\.js[x]?$/,
         include: [path.resolve(__dirname, SRC_DIR)],
-				loaders: ['babel-loader']
+        loaders: ["babel-loader"]
       },
       // CSS
-			{
+      {
         test: /\.css$/,
         include: [path.resolve(__dirname, SRC_DIR)],
-				loaders: ['style-loader', 'css-loader'],
+        loaders: ["style-loader", "css-loader"]
       },
       {
         test: /\.scss$/,
@@ -42,38 +45,48 @@ module.exports = {
         use: extractSass.extract({
           use: [
             {
-              loader: 'css-loader',
+              loader: "css-loader",
               options: {
                 sourceMap: true,
-								importLoaders: 3
+                importLoaders: 3
               }
             },
             {
-              loader: 'postcss-loader',
+              loader: "postcss-loader",
               options: {
                 plugins: () => {
-                  return [
-                    require('autoprefixer')
-                  ];
+                  return [require("autoprefixer")];
                 },
                 sourceMap: true
               }
             },
             {
-              loader: 'sass-loader',
+              loader: "sass-loader",
               options: {
-                sourceMap: true
+                sourceMap: true,
+                functions: {
+                  // Convert theme.js into sass values
+                  "get($keys)": function(keys) {
+                    keys = keys.getValue().split(".");
+                    let result = sassVars;
+                    let i;
+                    for (i = 0; i < keys.length; i++) {
+                      result = result[keys[i]];
+                    }
+                    return sassUtils.castToSass(result);
+                  }
+                }
               }
             },
-						{
-		          loader: 'sass-resources-loader',
-		          options: {
-		            resources: sassResources,
-		          },
-		        },
+            {
+              loader: "sass-resources-loader",
+              options: {
+                resources: sassResources
+              }
+            }
           ],
           // use style-loader in development
-          fallback: 'style-loader'
+          fallback: "style-loader"
         })
       }
     ]
@@ -81,21 +94,21 @@ module.exports = {
   plugins: [
     // Templating
     new HtmlWebpackPlugin({
-      title: 'Pocket2Kindle',
-      template: 'index.ejs'
+      title: "Pocket2Kindle",
+      template: "index.ejs"
     }),
     // Hot module reloading
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin([DIST_DIR], {
       watch: true,
-      exclude: ['index.html'] // permissions issues on windows without this
+      exclude: ["index.html"] // permissions issues on windows without this
     }),
     // Extract CSS file
     extractSass
   ],
-	resolve: {
-    modules: ['node_modules', 'src'],
-    extensions: ['.js', '.jsx', '.css', '.scss'],
+  resolve: {
+    modules: ["node_modules", "src"],
+    extensions: [".js", ".jsx", ".css", ".scss"]
   }
 };

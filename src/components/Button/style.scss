@@ -1,36 +1,36 @@
 .btn {
-	@include transition;
-	position: relative;
-	display: inline-block;
-	padding: 1em 2em;
-	background: $primary;
-	color: $white;
-	cursor: pointer;
+  @include transition;
+  position: relative;
+  display: inline-block;
+  padding: 1em 2em;
+  background: map-get($colors, primary);
+  color: map-get($colors, white);
+  cursor: pointer;
 
-	// Loading message/spinner
-	&::before {
-		content: 'loading...';
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		opacity: 0;
-		color: $white;
-	}
+  // Loading message/spinner
+  &::before {
+    content: "loading...";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: map-get($colors, white);
+  }
 
-	&:hover {
-		opacity: 0.75;
-	}
-	&:active {
-		opacity: 0.9;
-	}
+  &:hover {
+    opacity: 0.75;
+  }
+  &:active {
+    opacity: 0.9;
+  }
 
-	&.loading {
-		color: $primary;
-		opacity: 1;
+  &.loading {
+    color: map-get($colors, primary);
+    opacity: 1;
 
-		&::before{
-			opacity: 1;
-		}
-	}
+    &::before {
+      opacity: 1;
+    }
+  }
 }

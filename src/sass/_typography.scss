@@ -1,167 +1,182 @@
 ﻿/* Typography */
 $lineHeightDefault: 1.4em;
-$fontFamilyDefault: 'Arial', sans-serif;
-$fontFamilySecondary: 'Open Sans', sans-serif;
+$fontFamilyDefault: "Arial", sans-serif;
+$fontFamilySecondary: "Open Sans", sans-serif;
 
 ::selection {
-	color: $white;
-	background: $primary;
+  color: map-get($colors, white);
+  background: map-get($colors, primary);
 }
 ::-moz-selection {
-	color: $white;
-	background: $primary;
+  color: map-get($colors, white);
+  background: map-get($colors, primary);
 }
 
 html {
-	font-size: percentage($base/16px);
-	font-family: $fontFamilyDefault;
-	line-height: $lineHeightDefault;
-	color: $darkgrey;
+  font-size: percentage($base/16px);
+  font-family: $fontFamilyDefault;
+  line-height: $lineHeightDefault;
+  color: map-get($colors, darkgrey);
 }
 
 a {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 // Screen reader text
 .srt {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 .icon {
-	position: relative;
-	display: inline-block;
-	vertical-align: middle;
-	width: 1em;
-	height: 1em;
-	fill: currentColor;
-	pointer-events: none;
-	transform-origin: 50% 50%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  pointer-events: none;
+  transform-origin: 50% 50%;
 }
 
 strong {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 small,
 .small {
-	font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 /* Generic text */
 @mixin text {
-	font-family: $fontFamilyDefault;
-	line-height: 1.4;
-	font-size: rem(17px);
+  font-family: $fontFamilyDefault;
+  line-height: 1.4;
+  font-size: rem(17px);
 }
 .text {
-	@include text;
+  @include text;
 }
 
 p {
-	@include text;
+  @include text;
 
-	&:not(:last-child) {
-		margin-bottom: 1.5em;
-	}
+  &:not(:last-child) {
+    margin-bottom: 1.5em;
+  }
 }
 
 /* Generic Title */
 @mixin title {
-	font-family: $fontFamilySecondary;
-	line-height: 1.4;
-	font-weight: 700;
+  font-family: $fontFamilySecondary;
+  line-height: 1.4;
+  font-weight: 700;
 
-	a {
-		color: inherit;
-	}
+  a {
+    color: inherit;
+  }
 }
-h1, h2, h3, h4, h5, h6 {
-	@include title;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include title;
 }
 h1 {
-	font-size: rem(20px);
+  font-size: rem(20px);
 }
 h2 {
-	font-size: rem(18px);
+  font-size: rem(18px);
 }
 h3 {
-	font-size: rem(16px);
-	text-transform: uppercase;
+  font-size: rem(16px);
+  text-transform: uppercase;
 }
 
 hgroup {
-	margin: 1.5rem 0 3rem;
+  margin: 1.5rem 0 3rem;
 
-	h1, h2, h3, h4, h5, h6 {
-		margin: 0 0 0.5em;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 0.5em;
+  }
 
-	&:first-child {
-		margin-top: 0;
-	}
-	&:last-child {
-		margin: 0;
-	}
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin: 0;
+  }
 }
 
 sup {
-	position: relative;
-	top: -0.4em;
-	font-size: 0.6em;
+  position: relative;
+  top: -0.4em;
+  font-size: 0.6em;
 }
 
 /* User Content Areas */
 .user-content {
-	@include modulePaddingFix;
-	@include text;
+  @include modulePaddingFix;
+  @include text;
 
-	h1, h2, h3, h4, h5, h6 {
-		margin-bottom: 1em;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1em;
+  }
 
-	a {
-		text-decoration: underline;
-	}
+  a {
+    text-decoration: underline;
+  }
 
-	br {
-		height: 0.8em;
-	}
+  br {
+    height: 0.8em;
+  }
 
-	p {
-		margin-bottom: 1.4em;
-	}
+  p {
+    margin-bottom: 1.4em;
+  }
 
-	strong {
-		font-weight: 700;
-	}
+  strong {
+    font-weight: 700;
+  }
 
-	em {
-		font-style: italic;
-	}
+  em {
+    font-style: italic;
+  }
 
-	ul,
-	ol {
-		margin: 2em 0;
-		font-size: em(21px);
+  ul,
+  ol {
+    margin: 2em 0;
+    font-size: em(21px);
 
-		li {
-			margin: 0.7em 0;
-			line-height: 1.5;
-			list-style-type: circle;
-		}
-	}
+    li {
+      margin: 0.7em 0;
+      line-height: 1.5;
+      list-style-type: circle;
+    }
+  }
 
-	ol {
-		li {
-			list-style-type: decimal;
-		}
-	}
+  ol {
+    li {
+      list-style-type: decimal;
+    }
+  }
 }
