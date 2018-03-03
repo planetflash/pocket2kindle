@@ -20,13 +20,14 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
   context: SRC_PATH,
+  entry: "index.js",
   output: {
     path: DIST_PATH,
     publicPath: "/",
     filename: "bundle.[hash].js"
   },
   module: {
-    loaders: [
+    rules: [
       // Babel
       {
         test: /\.js[x]?$/,

@@ -8,8 +8,7 @@ const DIST_DIR = "dist";
 const DIST_PATH = path.join(__dirname, DIST_DIR);
 
 module.exports = merge(common, {
-  entry: ["react-hot-loader/patch", "./index.js"],
-  devtool: "eval-source-map",
+  mode: "development",
   devServer: {
     contentBase: DIST_PATH,
     port: 3000,
