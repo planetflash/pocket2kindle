@@ -1,17 +1,17 @@
-.slide-enter {
+:global .slide-enter {
   transform: translateX(-100%);
-}
 
-.slide-enter.slide-enter-active {
-  transform: translateX(0);
-  transition: transform 500ms ease-out;
-}
+  &.slide-enter-active {
+    transform: translateX(0);
+    transition: transform 500ms ease-out;
+  }
 
-.slide-exit {
-  transform: translateX(0);
-}
+  &.slide-exit {
+    transform: translateX(0);
+  }
 
-.slide-exit.slide-exit-active {
-  transform: translateX(-100%);
-  transition: transform 3000ms ease-in;
+  &.slide-exit.slide-exit-active {
+    transform: translateX(-100%);
+    transition: transform 3000ms ease-in;
+  }
 }

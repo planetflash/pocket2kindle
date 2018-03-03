@@ -10,7 +10,7 @@ const Error = ({ message }) => {
   const showError = message ? true : false;
 
   return (
-    <div className="error">
+    <div styleName="error">
       <Fade in={showError}>{message}</Fade>
       <Slide in={showError}>{message}</Slide>
     </div>

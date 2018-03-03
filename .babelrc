@@ -1,22 +1,37 @@
 {
   "presets": [
-		[ "latest",
-			{
-	      "modules": false
-	    }
-		],
-		"stage-0",
-		"react",
-	],
-	"plugins": [
-		"react-hot-loader/babel",
-		["transform-runtime", {
-      "helpers": false,
-      "polyfill": true,
-      "regenerator": true,
-    }]
-	],
-	"env": {
+    [
+      "latest",
+      {
+        "modules": false
+      }
+    ],
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": true,
+        "regenerator": true
+      }
+    ],
+    [
+      "react-css-modules",
+      {
+        "filetypes": {
+          ".scss": {
+            "syntax": "postcss-scss"
+          }
+        },
+        "webpackHotModuleReloading": true
+      }
+    ]
+  ],
+  "env": {
     "development": {
       "presets": ["react-hmre"]
     }

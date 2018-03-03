@@ -1,4 +1,4 @@
-@keyframes spin {
+@keyframes :global (spin) {
   0% {
     transform: rotate(0deg);
   }
@@ -7,7 +7,7 @@
   }
 }
 
-@keyframes flash {
+@keyframes :global (flash) {
   0% {
     opacity: 0;
   }
@@ -16,7 +16,7 @@
   }
 }
 
-@keyframes shake {
+@keyframes :global (shake) {
   0% {
     transform: translateX(-2.5%);
   }

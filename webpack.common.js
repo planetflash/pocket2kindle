@@ -11,15 +11,15 @@ const DIST_PATH = path.join(__dirname, DIST_DIR);
 const SRC_DIR = "src";
 const SRC_PATH = path.join(__dirname, SRC_DIR);
 
-const sassVars = require(SRC_PATH + "/theme.js");
-const sassResources = require(SRC_PATH + "/sass/utils.js");
+const sassVars = require(`${SRC_PATH}/theme.js`);
+const sassResources = require(`${SRC_PATH}/sass/utils.js`);
 
 const extractSass = new ExtractTextPlugin({
   filename: "[name].[hash].css"
 });
 
 module.exports = {
-  context: SRC_PATH,
+  entry: `${SRC_PATH}/index.js`,
   output: {
     path: DIST_PATH,
     publicPath: "/",
@@ -48,6 +48,8 @@ module.exports = {
               loader: "css-loader",
               options: {
                 sourceMap: true,
+                modules: true,
+                localIdentName: "[path]___[name]__[local]___[hash:base64:5]",
                 importLoaders: 3
               }
             },
@@ -56,14 +58,12 @@ module.exports = {
               options: {
                 plugins: () => {
                   return [require("autoprefixer")];
-                },
-                sourceMap: true
+                }
               }
             },
             {
               loader: "sass-loader",
               options: {
-                sourceMap: true,
                 functions: {
                   // Convert theme.js into sass values
                   "get($keys)": function(keys) {
@@ -95,7 +95,7 @@ module.exports = {
     // Templating
     new HtmlWebpackPlugin({
       title: "Pocket2Kindle",
-      template: "index.ejs"
+      template: `${SRC_PATH}/index.ejs`
     }),
     // Hot module reloading
     new webpack.NamedModulesPlugin(),

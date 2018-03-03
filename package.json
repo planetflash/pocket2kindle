@@ -28,6 +28,7 @@
   "author": "Paul Thomas",
   "license": "MIT",
   "dependencies": {
+    "babel-plugin-react-css-modules": "^3.3.3",
     "express": "^4.16.2",
     "node-getpocket": "^1.0.0"
   },
@@ -60,6 +61,7 @@
     "node-sass-utils": "^1.1.2",
     "nodemon": "^1.14.2",
     "postcss-loader": "^2.0.10",
+    "postcss-scss": "^1.0.4",
     "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
