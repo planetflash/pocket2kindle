@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import CSSModules from "react-css-modules";
 
 import { mergePropsWithAvailableProps } from "utils";
 import events from "events";
@@ -12,7 +11,7 @@ const availableProps = {
   ...events.touch
 };
 
-import styles from "./style.scss";
+import "./style.scss";
 
 class Button extends React.Component {
   render() {
@@ -42,4 +41,4 @@ Button.propTypes = {
   error: PropTypes.bool
 };
 
-export default CSSModules(Button, styles);
+export default Button;
