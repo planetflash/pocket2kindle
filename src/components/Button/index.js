@@ -25,10 +25,10 @@ class Button extends React.Component {
     return (
       <Shake in={error}>
         <a
-          className={classes}
+          styleName={classes}
           {...mergePropsWithAvailableProps(availableProps, this.props)}
         >
-          <span className="text">{text}</span>
+          <span>{text}</span>
         </a>
       </Shake>
     );
