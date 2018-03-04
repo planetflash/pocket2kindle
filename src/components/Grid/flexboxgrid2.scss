@@ -2,8 +2,8 @@ $flexboxgrid-grid-columns: $grid-columns;
 $flexboxgrid-gutter-width: $grid-gutter-width;
 $flexboxgrid-breakpoints: $breakpoints;
 
-$gutter-compensation: $flexboxgrid-gutter-width * .5 * -1;
-$half-gutter-width: $flexboxgrid-gutter-width * .5;
+$gutter-compensation: $flexboxgrid-gutter-width * 0.5 * -1;
+$half-gutter-width: $flexboxgrid-gutter-width * 0.5;
 
 .row {
   box-sizing: border-box;
@@ -37,7 +37,6 @@ $half-gutter-width: $flexboxgrid-gutter-width * .5;
 
 @each $name, $size in $flexboxgrid-breakpoints {
   @media only screen and (min-width: $size) {
-
     @for $i from 1 through $flexboxgrid-grid-columns {
       .col-#{$name}-#{$i} {
         @include flexboxgrid-sass-col-common;
