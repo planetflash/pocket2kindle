@@ -6,7 +6,7 @@ import "./slide.scss";
 
 const duration = {
   enter: 500,
-  exit: 3000
+  exit: 300
 };
 
 const Slide = ({ in: inProp, children }) => {
