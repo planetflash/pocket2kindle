@@ -7,11 +7,11 @@ import { history } from "store";
 import Button from "components/Button/";
 import Error from "components/Error/";
 import { Row, Col } from "components/Grid/";
+import Counter from "components/Counter/";
 
 class PocketComponent extends React.Component {
   getRequestToken = e => {
     e && e.preventDefault();
-
     const { getRequestToken } = this.props.actions;
 
     getRequestToken();
@@ -68,6 +68,8 @@ class PocketComponent extends React.Component {
             Col 2
           </Col>
         </Row>
+
+        <Counter />
       </div>
     );
   }
