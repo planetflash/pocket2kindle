@@ -1,5 +1,4 @@
 $base: 16px;
-$grid-columns: 12;
-$grid-gutter-width: 1rem;
+$grid: get("grid");
 $breakpoints: get("breakpoints");
 $colors: get("colors");

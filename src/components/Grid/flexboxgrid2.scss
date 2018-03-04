@@ -1,5 +1,5 @@
-$flexboxgrid-grid-columns: $grid-columns;
-$flexboxgrid-gutter-width: $grid-gutter-width;
+$flexboxgrid-grid-columns: map-get($grid, columns);
+$flexboxgrid-gutter-width: map-get($grid, gutterWidth);
 $flexboxgrid-breakpoints: $breakpoints;
 
 $gutter-compensation: $flexboxgrid-gutter-width * 0.5 * -1;
