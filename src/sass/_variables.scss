@@ -1,2 +1,10 @@
 $base: 16px;
+$grid-columns: 12;
+$grid-gutter-width: 1rem;
+$breakpoints: (
+  /* 0px */ xs: 0,
+  /* 480px */ sm: 30em,
+  /* 1024px */ md: 64em,
+  /* 1200px */ lg: 75em
+);
 $colors: get("colors");

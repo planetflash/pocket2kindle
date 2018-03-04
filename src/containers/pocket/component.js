@@ -6,6 +6,7 @@ import { history } from "store";
 // components
 import Button from "components/Button/";
 import Error from "components/Error/";
+import { Row, Col } from "components/Grid/";
 
 class PocketComponent extends React.Component {
   getRequestToken = e => {
@@ -58,6 +59,15 @@ class PocketComponent extends React.Component {
         />
 
         <Error message={error} />
+
+        <Row>
+          <Col xs={12} sm={6} md={6}>
+            Col 1
+          </Col>
+          <Col xs={12} sm={6} md={6}>
+            Col 2
+          </Col>
+        </Row>
       </div>
     );
   }
