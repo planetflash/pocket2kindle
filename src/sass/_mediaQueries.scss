@@ -1,71 +1,45 @@
 /* Media Queries */
 
-// 1: smaller than mobile
-// 2: Mobile
-// 3: Tablet Portrait
-// 4: Tablet Landscape
-// 5: Laptop
-// 6: Desktop
-// 7: Large Desktop
-
 // Breakpoint above n
-@mixin bp($bp) {
-	@if $bp == 1 {
-		@media screen and (min-width:350px) { @content; }
-	}
-	@else if $bp == 2 {
-		@media screen and (min-width:450px) { @content; }
-	}
-	@else if $bp == 3 {
-		@media screen and (min-width:750px) { @content; }
-	}
-	@else if $bp == 4 {
-		@media screen and (min-width:1000px) { @content; }
-	}
-	@else if $bp == 5 {
-		@media screen and (min-width:1200px) { @content; }
-	}
-	@else if $bp == 6 {
-		@media screen and (min-width:1400px) { @content; }
-	}
-	@else if $bp == 7 {
-		@media screen and (min-width:1600px) { @content; }
-	}
-	@else {
-		@media screen and (min-width:$bp) { @content; }
-	}
+@mixin bp($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+    @warn "Breakpoint not set in _variables.scss";
+  }
 }
 
 // Breakpoint just n
-@mixin bp-just($bp, $bpu:"") {
-	@if $bp == 1 {
-		@media screen and (min-width:0px) and (max-width:449px) { @content; }
-	}
-	@else if $bp == 2 {
-		@media screen and (min-width:450px) and (max-width:749px) { @content; }
-	}
-	@else if $bp == 3 {
-		@media screen and (min-width:750px) and (max-width:999px) { @content; }
-	}
-	@else if $bp == 4 {
-		@media screen and (min-width:1000px) and (max-width:1199px) { @content; }
-	}
-	@else if $bp == 5 {
-		@media screen and (min-width:1200px) and (max-width:1399px) { @content; }
-	}
-	@else if $bp == 6 {
-		@media screen and (min-width:1400px) and (max-width:1599px) { @content; }
-	}
-	@else if $bp == 7 {
-		@media screen and (min-width:1600px) { @content; }
-	}
-	@else if $bp == mobile {
-		@media screen and (min-width:0px) and (max-width:1199px) { @content; }
-	}
-	@else if $bp == desktop {
-		@media screen and (min-width:1200px) { @content; }
-	}
-	@else {
-		@media screen and (min-width:$bp) and (max-width:$bpu) { @content; }
-	}
+@mixin bp-just($breakpoint, $breakpoint_upper: "") {
+  @if map-has-key($breakpoints, $breakpoint) and
+    map-get-next($breakpoints, $breakpoint)
+  {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) and (max-width: #{map-get-next($breakpoints, $breakpoint)}) {
+      @content;
+    }
+    @warn map-get($breakpoints, $breakpoint);
+    @warn map-get-next($breakpoints, $breakpoint);
+  } @else if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media screen and (min-width:#{map-get($breakpoints, 'xs')}) and (max-width:#{map-get($breakpoints, 'md')}) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media screen and (min-width:#{map-get($breakpoints, 'md')}) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $breakpoint) and (max-width: $breakpoint_upper) {
+      @content;
+    }
+    @warn "Breakpoint not set in _variables.scss";
+  }
 }
