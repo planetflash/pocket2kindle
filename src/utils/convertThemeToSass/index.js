@@ -2,7 +2,13 @@ const sass = require("node-sass");
 const sassUtils = require("node-sass-utils")(sass);
 const sassVars = require("../../theme.js");
 
-const convertToSassDimension = function(result) {
+// Convert js strings to dimenssions
+const convertStringToSassDimension = function(result) {
+  // Only attempt to convert strings
+  if (typeof result !== "string") {
+    return result;
+  }
+
   const cssUnits = [
     "rem",
     "em",
@@ -30,31 +36,37 @@ const convertToSassDimension = function(result) {
   return result;
 };
 
-const sassFunc = {
-  // Convert theme.js into sass values
-  "get($keys)": function(keys) {
-    keys = keys.getValue().split(".");
-    let result = sassVars;
-    let i;
-    for (i = 0; i < keys.length; i++) {
-      result = result[keys[i]];
-      // Convert to SassDimension if dimenssion
-      if (typeof result === "string") {
-        result = convertToSassDimension(result);
-      } else if (typeof result === "object") {
-        Object.keys(result).forEach(function(key) {
-          const value = result[key];
-          if (typeof value === "string") {
-            result[key] = convertToSassDimension(value);
-          }
-        });
-      }
+// Convert theme.js into sass values
+const convertThemeToSass = function(keys) {
+  keys = keys.split(".");
+  let result = sassVars;
+  let i;
+  for (i = 0; i < keys.length; i++) {
+    result = result[keys[i]];
+    // Convert to SassDimension if dimenssion
+    if (typeof result === "string") {
+      result = convertStringToSassDimension(result);
+    } else if (typeof result === "object") {
+      Object.keys(result).forEach(function(key) {
+        const value = result[key];
+        result[key] = convertStringToSassDimension(value);
+      });
     }
-    result = sassUtils.castToSass(result);
+  }
+  result = sassUtils.castToSass(result);
+  return result;
+};
+
+const sassLoaderFunctions = {
+  "get($keys)": function(keys) {
+    keys = keys.getValue();
+    const result = convertThemeToSass(keys);
     return result;
   }
 };
 
 module.exports = {
-  sassFunc
+  convertStringToSassDimension,
+  convertThemeToSass,
+  sassLoaderFunctions
 };

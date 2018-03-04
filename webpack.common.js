@@ -10,7 +10,8 @@ const SRC_DIR = "src";
 const SRC_PATH = path.join(__dirname, SRC_DIR);
 
 const sassResources = require(`${SRC_PATH}/sass/utils.js`);
-const sassFunc = require(`${SRC_PATH}/utils/convertThemeToSass`).sassFunc;
+const sassLoaderFunctions = require(`${SRC_PATH}/utils/convertThemeToSass`)
+  .sassLoaderFunctions;
 
 const extractSass = new ExtractTextPlugin({
   filename: "[name].[hash].css"
@@ -62,7 +63,7 @@ module.exports = {
             {
               loader: "sass-loader",
               options: {
-                functions: sassFunc
+                functions: sassLoaderFunctions
               }
             },
             {
