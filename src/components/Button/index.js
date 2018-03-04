@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import { mergePropsWithAvailableProps } from "utils";
-import events from "events";
+import events from "utils/events";
 import Shake from "transitions/Shake";
 
 const availableProps = {

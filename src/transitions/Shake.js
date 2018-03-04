@@ -19,4 +19,8 @@ Shake.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 };
 
+Shake.defaultProps = {
+  in: false
+};
+
 export default Shake;
