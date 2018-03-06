@@ -1,44 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import { shallow } from "enzyme";
+import Counter from "./";
 
-import { mergePropsWithAvailableProps } from "utils";
-import events from "utils/events";
-import Shake from "transitions/Shake";
+describe("Counter component", () => {
+  it("starts witn a count of 0", () => {
+    const wrapper = shallow(<Counter />);
+    const text = wrapper.find("p").text();
+    expect(text).toEqual("Current count: 0");
+  });
 
-const availableProps = {
-  ...events.mouse,
-  ...events.touch
-};
+  it("can increment the count when the button is clicked", () => {
+    const wrapper = shallow(<Counter />);
+    const incrementBtn = wrapper.find("Button.increment");
+    incrementBtn.simulate("click");
+    const text = wrapper.find("p").text();
+    expect(text).toEqual("Current count: 1");
+  });
 
-import "./style.scss";
-
-class Button extends React.Component {
-  render() {
-    const { text, loading, error } = this.props;
-
-    const classes = classNames({
-      btn: true,
-      loading
-    });
-
-    return (
-      <Shake in={error}>
-        <a
-          styleName={classes}
-          {...mergePropsWithAvailableProps(availableProps, this.props)}
-        >
-          <span>{text}</span>
-        </a>
-      </Shake>
-    );
-  }
-}
-
-Button.propTypes = {
-  text: PropTypes.string,
-  loading: PropTypes.bool,
-  error: PropTypes.bool
-};
-
-export default Button;
+  it("can decrement the count when the button is clicked", () => {
+    const wrapper = shallow(<Counter />);
+    const decrementBtn = wrapper.find("Button.decrement");
+    decrementBtn.simulate("click");
+    const text = wrapper.find("p").text();
+    expect(text).toEqual("Current count: -1");
+  });
+});

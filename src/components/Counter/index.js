@@ -15,11 +15,28 @@ class Counter extends React.Component {
     });
   };
 
+  decrement = () => {
+    this.setState(prevState => {
+      return {
+        count: prevState.count - 1
+      };
+    });
+  };
+
   render() {
     return (
       <div>
         <p>Current count: {this.state.count}</p>
-        <Button onClick={this.increment} text={"Increment Count"} />
+        <Button
+          className="increment"
+          onClick={this.increment}
+          text={"Increment Count"}
+        />
+        <Button
+          className="decrement"
+          onClick={this.decrement}
+          text={"Decrement Count"}
+        />
       </div>
     );
   }
