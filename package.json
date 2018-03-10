@@ -13,17 +13,15 @@
     "watch": "webpack --watch --progress --config webpack.dev.js",
     "dev-server": "nodemon ./server.js",
     "dev-client": "webpack-dev-server --open --config webpack.dev.js",
-    "start": "concurrently -p '[{name}]' -n 'dev-server,dev-client,webpack' -c 'yellow.bold,blue.bold,magenta.bold,' 'npm run dev-server' 'npm run dev-client' 'npm run watch'",
+    "start":
+      "concurrently -p '[{name}]' -n 'dev-server,dev-client,webpack' -c 'yellow.bold,blue.bold,magenta.bold,' 'npm run dev-server' 'npm run dev-client' 'npm run watch'",
+    "test:watch": "jest --watch",
     "test": "jest",
     "prepush": "npm test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "prettier --write",
-      "eslint",
-      "git add"
-    ]
+    "src/**/*.js": ["prettier --write", "eslint", "git add"]
   },
   "author": "Paul Thomas",
   "license": "MIT",
