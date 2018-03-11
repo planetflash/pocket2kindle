@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component matches the snapshot 1`] = `
+<div>
+  <a
+    className="src-components-Button-___style__btn___2qMxX"
+  >
+    <span
+      className="text"
+    />
+  </a>
+</div>
+`;

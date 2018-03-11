@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error component matches the snapshot 1`] = `
+<div
+  className="src-components-Error-___style__error___2rnxz"
+>
+  <div
+    style={
+      Object {
+        "display": "block",
+        "opacity": 0,
+        "transition": "opacity 300ms ease-in-out",
+      }
+    }
+  >
+    <span
+      className="message"
+    />
+  </div>
+</div>
+`;

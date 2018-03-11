@@ -7,7 +7,9 @@ exports[`CounterList component matches the snapshot 1`] = `
       className="src-components-Button-___style__btn___2qMxX"
       onClick={[Function]}
     >
-      <span>
+      <span
+        className="text"
+      >
         Add Counter
       </span>
     </a>
@@ -24,7 +26,9 @@ exports[`CounterList component matches the snapshot 1`] = `
             className="src-components-Button-___style__btn___2qMxX"
             onClick={[Function]}
           >
-            <span>
+            <span
+              className="text"
+            >
               +++
             </span>
           </a>
@@ -34,7 +38,9 @@ exports[`CounterList component matches the snapshot 1`] = `
             className="src-components-Button-___style__btn___2qMxX"
             onClick={[Function]}
           >
-            <span>
+            <span
+              className="text"
+            >
               ---
             </span>
           </a>
@@ -52,7 +58,9 @@ exports[`CounterList component matches the snapshot 1`] = `
             className="src-components-Button-___style__btn___2qMxX"
             onClick={[Function]}
           >
-            <span>
+            <span
+              className="text"
+            >
               +++
             </span>
           </a>
@@ -62,7 +70,9 @@ exports[`CounterList component matches the snapshot 1`] = `
             className="src-components-Button-___style__btn___2qMxX"
             onClick={[Function]}
           >
-            <span>
+            <span
+              className="text"
+            >
               ---
             </span>
           </a>

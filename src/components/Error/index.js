@@ -10,13 +10,15 @@ const Error = ({ message }) => {
 
   return (
     <div styleName="error">
-      <Fade in={showError}>{message}</Fade>
+      <Fade in={showError}>
+        <span className="message">{message}</span>
+      </Fade>
     </div>
   );
 };
 
 Error.propTypes = {
-  message: PropTypes.string.isRequired
+  message: PropTypes.string
 };
 
 export default Error;
